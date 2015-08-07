@@ -4,7 +4,7 @@
 
 module.exports =
 class OpenInAppView extends SelectListView
-  type: null
+  path: null
 
   activate: ->
     new OpenInAppView
@@ -26,7 +26,7 @@ class OpenInAppView extends SelectListView
 
     @storeFocusedElement()
 
-    apps = atom.config.get('open-in.applications').split(',')
+    apps = atom.config.get('open-file-in.applications').split(',')
     @setItems apps
 
     @focusFilterEditor()
@@ -34,8 +34,7 @@ class OpenInAppView extends SelectListView
   hide: ->
     @panel?.hide()
 
-  toggle: (type) ->
-    @type = type
+  toggle: () ->
     if @panel?.isVisible()
       @cancel()
     else
@@ -47,14 +46,8 @@ class OpenInAppView extends SelectListView
 
   confirmed: (app) =>
     @cancel()
-
-    switch @type
-      when 'Project'
-        path = atom.project?.getPath()
-
-      when 'Current file'
-        atom.workspace.observeTextEditors (editor) ->
-          path = atom.workspace.getActiveTextEditor().getPath()
+    atom.workspace.observeTextEditors (editor) ->
+      @path = atom.workspace.getActiveTextEditor().getPath()
 
     open = exec "#{app} #{path}" if path?
 

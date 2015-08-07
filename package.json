@@ -1,15 +1,15 @@
 {
-  "name": "open-in",
-  "main": "./lib/open-in",
+  "name": "open-file-in",
+  "main": "./lib/open-file-in",
   "activationCommands": {
     "atom-text-editor": ["open-in:toggle"]
   },
-  "version": "3.1.0",
-  "description": "Open current project or file in application of choice",
+  "version": "1.0.0",
+  "description": "Open current file in application of choice",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielbrodin/atom-open-in"
+    "url": "https://github.com/BuZZ-dEE/open-file-in"
   },
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
