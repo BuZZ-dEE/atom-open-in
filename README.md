@@ -7,7 +7,7 @@
 
 ## Usage
 
-Press `ctrl-alt-o` and pick the application of choice.
+Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd> and pick the application of choice.
 
 ## Settings
 ### Applications
