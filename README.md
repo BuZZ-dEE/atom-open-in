@@ -12,4 +12,4 @@ Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd> and pick the application of ch
 ## Settings
 ### Applications
 A comma separated list without spaces of applications you want to be able to trigger.
-`Default: GitHub,Terminal`
+`Default: GIMP, Inkscape, svgTester`

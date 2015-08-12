@@ -2,7 +2,7 @@ module.exports =
   config:
     applications:
       type: 'string'
-      default: 'GitHub,Terminal'
+      default: 'gimp,inkscape,svgTester'
 
   openInAppView: null
 
