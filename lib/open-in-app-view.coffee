@@ -1,10 +1,12 @@
 {$$, SelectListView} = require 'atom-space-pen-views'
 
 {exec} = require 'child_process'
+{spawn} = require 'child_process'
 
 module.exports =
 class OpenInAppView extends SelectListView
   path: null
+  open: null
 
   activate: ->
     new OpenInAppView
@@ -49,7 +51,10 @@ class OpenInAppView extends SelectListView
     atom.workspace.observeTextEditors (editor) ->
       @path = atom.workspace.getActiveTextEditor().getPath()
 
-    open = exec "#{app} #{path}" if path?
+    switch process.platform
+      when 'darwin' then open = spawn '/usr/bin/open', ['-a', app, path]
+      when 'win32'  then open = exec "#{app} #{path}" if path?
+      when 'linux'  then open = exec "#{app} #{path}" if path?
 
     open.stderr.on 'data', (data) ->
       console.warn "Unable to find application #{app}"
