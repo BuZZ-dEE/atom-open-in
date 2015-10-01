@@ -6,7 +6,7 @@
       "open-in:toggle"
     ]
   },
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Open current file in application of choice",
   "license": "MIT",
   "repository": {
