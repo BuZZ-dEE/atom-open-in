@@ -54,7 +54,6 @@ class OpenInAppView extends SelectListView
     switch process.platform
       when 'darwin' then open = spawn '/usr/bin/open', ['-a', app, path]
       when 'win32'  then open = exec "#{app} #{path}" if path?
-      when 'win64'  then open = exec "#{app} #{path}" if path?
       when 'linux'  then open = exec "#{app} #{path}" if path?
 
     open.stderr.on 'data', (data) ->
